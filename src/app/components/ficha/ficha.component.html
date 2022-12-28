@@ -1,1 +1,49 @@
-<p>ficha works!</p>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="Serie">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.Serie.S }}</td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="Cod_antiguo">
+    <th mat-header-cell *matHeaderCellDef>Cod_antiguo</th>
+    <td mat-cell *matCellDef="let element">{{ element.Cod_antiguo.S }}</td>
+  </ng-container> -->
+
+  <!-- <ng-container matColumnDef="ACUNID_antiguo">
+    <th mat-header-cell *matHeaderCellDef>ACUNID_antiguo</th>
+    <td mat-cell *matCellDef="let element">{{ element.ACUNID_antiguo.S }}</td>
+  </ng-container> -->
+
+    <ng-container matColumnDef="Concatenación_2">
+        <th mat-header-cell *matHeaderCellDef>Concatenación_2</th>
+        <td mat-cell *matCellDef="let element">{{ element.Concatenacion_2.S }}</td>
+    </ng-container>
+
+  <ng-container matColumnDef="Paraje">
+    <th mat-header-cell *matHeaderCellDef>Paraje</th>
+    <td mat-cell *matCellDef="let element">{{ element.Paraje.S }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Municipio">
+    <th mat-header-cell *matHeaderCellDef>Municipio</th>
+    <td mat-cell *matCellDef="let element">{{ element.Municipio.S }}</td>
+  </ng-container>
+
+    <!-- <ng-container matColumnDef="Rio">
+        <th mat-header-cell *matHeaderCellDef>Rio</th>
+        <td mat-cell *matCellDef="let element">{{ element.Rio.S }}</td>
+    </ng-container> -->
+
+  <ng-container matColumnDef="X">
+    <th mat-header-cell *matHeaderCellDef>X</th>
+    <td mat-cell *matCellDef="let element">{{ element.X.S }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Y">
+    <th mat-header-cell *matHeaderCellDef>Y</th>
+    <td mat-cell *matCellDef="let element">{{ element.Y.S }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
