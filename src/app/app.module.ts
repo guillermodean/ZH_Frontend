@@ -21,7 +21,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import * as L from 'leaflet';
-
+import { AdduserComponent } from './components/users/adduser/adduser.component';
+// Form fields
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,7 @@ import * as L from 'leaflet';
     EncabezadoComponent,
     SidenavComponent,
     UbicacionComponent,
+    AdduserComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,7 @@ import * as L from 'leaflet';
     MatSortModule,
     MatPaginatorModule,
     HttpClientModule,
+    MatFormFieldModule
 
   ],
   providers: [],
