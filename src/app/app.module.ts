@@ -23,8 +23,11 @@ import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import * as L from 'leaflet';
 import { AdduserComponent } from './components/users/adduser/adduser.component';
 // Form fields
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +51,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSortModule,
     MatPaginatorModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
+    MatDialog,
+    MatDialogRef,
+
 
   ],
   providers: [],

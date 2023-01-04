@@ -6,6 +6,9 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/users';
 import { ViewChild } from '@angular/core';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AdduserComponent } from './adduser/adduser.component';
+
 
 
 @Component({
@@ -29,11 +32,11 @@ export class UsersComponent implements OnInit {
     email: '',
     password: '',
     name: '',
-    _id: ''
+    id: ''
   }
 
 
-  constructor(private usersservice:UsersService) { }
+  constructor(private usersservice:UsersService, private dialog:MatDialogModule, public snackbar:MatSnackBarModule, private _dialog:MatDialog) { }
   
   ngOnInit(): void {
     console.log("ngOnInit");
@@ -57,21 +60,13 @@ export class UsersComponent implements OnInit {
 
   // Define the function to open the popup window
   addUser() {
-    // Set the dimensions for the window
-    const windowWidth = 500;
-    const windowHeight = 500;
-
-    // Calculate the position of the window based on the current window size
-    const windowLeft = (screen.width / 2) - (windowWidth / 2);
-    const windowTop = (screen.height / 2) - (windowHeight / 2);
-
-    // Open the window with the specified dimensions and position
-    this.popupWindow = window.open(
-      'http://localhost:4200/adduser',
-      '_blank',
-      `height=${windowHeight}, width=${windowWidth}, top=${windowTop}, left=${windowLeft}`
-    );
+    const dialog1 = this._dialog.open(AdduserComponent, {
+      width: '500px',
+      height: '500px',
+      data: {name: this.user.name, email: this.user.email, password: this.user.password}
+    });
   }
+
 
   deleteUser(id:string){
     this.usersservice.deleteUser(id).subscribe(

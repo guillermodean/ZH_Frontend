@@ -28,5 +28,9 @@ export class UsersService {
     return this.http.post(`${this.API_URI}/users`,user)
   }
 
+  getcount(){
+    return this.http.get(`${this.API_URI}/users/count`)
+  }
+
 
 }
