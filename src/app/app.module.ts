@@ -27,7 +27,7 @@ import { FormsModule,  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+// import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,10 +55,13 @@ import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    MatDialog,
-    MatDialogRef,
+    // MatDialogRef,
 
 
+  ],
+  exports: [
+    MatFormFieldModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
