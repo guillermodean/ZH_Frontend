@@ -61,7 +61,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   exports: [
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

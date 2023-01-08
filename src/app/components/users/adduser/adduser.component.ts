@@ -5,8 +5,9 @@ import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder,Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
-
+import {MatDialogModule, MatDialog  } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-adduser',
@@ -30,7 +31,7 @@ export class AdduserComponent implements OnInit {
     name: '',
     id: ''
   }
-  constructor( private formsmodule:FormsModule ,private usersservice:UsersService,private fb:FormBuilder, private matformfield:MatFormFieldModule) { }
+  constructor( private matsnackbar:MatSnackBar ,private usersservice:UsersService,private fb:FormBuilder, public dialogRef :  MatDialogRef<AdduserComponent>) { }
 
   ngOnInit(): void {
     this.getCount();
@@ -48,15 +49,14 @@ export class AdduserComponent implements OnInit {
     this.usersservice.saveUser(user).subscribe(
       res => {
         console.log(res);
-        
-        this.closePopup();
       },
       err => console.log(err)
     );
+    this.closePopup();
   }
   closePopup(){
-    
-    this.popupWindow?.close();
+    this.dialogRef.close();
+    location.reload();
   }
   getusers(){
     this.usersservice.getUsers().subscribe(

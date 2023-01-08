@@ -3,11 +3,12 @@ import { UsersService } from '../../services/users.service';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/users';
 import { ViewChild } from '@angular/core';
-import { MatDialogModule, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog, MatDialogRef  } from '@angular/material/dialog';
 import { AdduserComponent } from './adduser/adduser.component';
+
 
 
 
@@ -36,7 +37,7 @@ export class UsersComponent implements OnInit {
   }
 
 
-  constructor(private usersservice:UsersService, private dialog:MatDialogModule, public snackbar:MatSnackBarModule, private _dialog:MatDialog) { }
+  constructor(private usersservice:UsersService, private dialog:MatDialogModule, public snackbar:MatSnackBar, private _dialog:MatDialog) { }
   
   ngOnInit(): void {
     console.log("ngOnInit");
@@ -65,7 +66,14 @@ export class UsersComponent implements OnInit {
       height: '500px',
       data: {name: this.user.name, email: this.user.email, password: this.user.password}
     });
+    this._dialog.afterAllClosed.subscribe(res => {
+      this.snackbar.open("Usuario agregado correctamente","",{duration: 2000});
+      this.getUsers();
+
+    });
   }
+
+  
 
 
   deleteUser(id:string){
