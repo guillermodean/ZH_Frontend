@@ -26,8 +26,8 @@ import { AdduserComponent } from './components/users/adduser/adduser.component';
 import { FormsModule,  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-// import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,14 +55,11 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    // _MatDialogBase,
-    // MatDialogRef,
+    MatDialog,
+    MatDialogRef,
 
 
   ],
-  exports: [
-    MatDialogModule]
-  ,
   providers: [],
   bootstrap: [AppComponent],
 })

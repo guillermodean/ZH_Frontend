@@ -1,17 +1,13 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/users';
 import { ViewChild } from '@angular/core';
-import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AdduserComponent } from './adduser/adduser.component';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormBuilder } from '@angular/forms';
-
 
 
 
@@ -40,8 +36,7 @@ export class UsersComponent implements OnInit {
   }
 
 
-  constructor(private router: Router, private usersservice:UsersService , public dialog: MatDialog,private snackBar: MatSnackBarModule, private fb: FormBuilder,public dialogRef: MatDialogRef<UsersComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private usersservice:UsersService, private dialog:MatDialogModule, public snackbar:MatSnackBarModule, private _dialog:MatDialog) { }
   
   ngOnInit(): void {
     console.log("ngOnInit");
@@ -65,7 +60,7 @@ export class UsersComponent implements OnInit {
 
   // Define the function to open the popup window
   addUser() {
-    const dialog1 = this.dialog.open(AdduserComponent, {
+    const dialog1 = this._dialog.open(AdduserComponent, {
       width: '500px',
       height: '500px',
       data: {name: this.user.name, email: this.user.email, password: this.user.password}

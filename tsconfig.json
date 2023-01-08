@@ -2,8 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
-    "noEmit": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -28,18 +26,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src/test.ts",
-    "src/**/*.spec.ts"
-  ],
-  "typeAcquisition": {
-    "enable": true,
-    "include": [
-      "jasmine",
-      "node"
-    ]
   }
 }
