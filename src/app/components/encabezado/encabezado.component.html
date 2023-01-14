@@ -1,11 +1,27 @@
-<div id="main" class="container-fluid p-0 m-0" *ngIf="login == true">
-  <div class="row">
-    <div class="Title">
-      <h1>Humedales ACUNID</h1>
+<div id="main" class="container-fluid p-0 m-0">
+  <mat-toolbar style="background-color: lightgray">
+    <div class="row">
+      <div class="col-md-2 col-sm-4">
+        <mat-toolbar-row style="background-color: lightgray">
+          <div class="logo">
+            <img class="logo" src="assets\images\logo1.png" />
+          </div>
+        </mat-toolbar-row>
+      </div>
+      <div class="col-md-8 col-sm-8">
+        <mat-toolbar-row> </mat-toolbar-row>
+      </div>
+      <div class="col-md-2 col-sm-1 logout" *ngIf="this.login == false">
+        <button #isLoggedIn mat-raised-button (click)="logged()">
+          <mat-icon>login</mat-icon
+          ><span class="text-break" style="margin-left: 2px">log in</span>
+        </button>
+      </div>
     </div>
-  </div>
+  </mat-toolbar>
 </div>
-<div class="row" style="height: 100%;">
+
+<div class="row" style="height: 100%">
   <div class="col-md-3">
     <app-sidenav></app-sidenav>
   </div>

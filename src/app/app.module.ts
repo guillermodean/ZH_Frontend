@@ -12,6 +12,10 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+// header
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 /*Tabla*/
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
@@ -27,6 +31,7 @@ import { FormsModule,  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './components/encabezado/login/login.component';
 // import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -37,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SidenavComponent,
     UbicacionComponent,
     AdduserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
+    MatToolbarModule,
     // MatDialogRef,
 
 
@@ -62,7 +69,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   exports: [
     MatFormFieldModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
