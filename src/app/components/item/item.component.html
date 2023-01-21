@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>{{ item.Item.Municipio.S }}</h1>
+          </mat-card-title>
+          <div class="col-md-12">
+            <div id="map" class="map"></div>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>Municipio</h2>
+          <p>{{ item.Item.Municipio.S }}</p>
+          <h2>Paraje</h2>
+          <p>{{ item.Item.Paraje.S }}</p>
+          <h2>ACUNID</h2>
+          <!-- <p>{{item.Item.ACUNID_antiguo.S}}</p> -->
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Add to cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

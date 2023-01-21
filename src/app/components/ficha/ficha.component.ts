@@ -6,6 +6,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { Ficha } from 'src/app/models/fichas';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 @Component({
   selector: 'app-ficha',
   templateUrl: './ficha.component.html',
@@ -14,7 +15,7 @@ import { Ficha } from 'src/app/models/fichas';
 export class FichaComponent implements OnInit {
 
   fichas:any = [];
-  displayedColumns: string[] = ['Serie', 'Paraje', 'Municipio', 'X', 'Y'];
+  displayedColumns: string[] = [ 'Paraje', 'Municipio', 'X', 'Y','Link'];
   dataSource = new MatTableDataSource<Ficha>();
 
   searchKey!: string;

@@ -32,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './components/encabezado/login/login.component';
+import { ItemComponent } from './components/item/item.component';
 // import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LoginComponent } from './components/encabezado/login/login.component';
     UbicacionComponent,
     AdduserComponent,
     LoginComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
