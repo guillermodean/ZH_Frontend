@@ -29,13 +29,12 @@
     </th>
     <!-- Eliminar -->
     <td mat-cell *matCellDef="let element">
-      <h5>{{ element.Serie.S }}</h5>
       <a
         mat-icon-button
         style="color: greenyellow"
         [routerLink]="['/item', element.Serie.S]"
       >
-        <mat-icon>delete_outline</mat-icon>
+        <mat-icon>arrow_forward</mat-icon>
       </a>
     </td>
   </ng-container>

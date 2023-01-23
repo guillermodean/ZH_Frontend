@@ -15,11 +15,14 @@
           <p>{{ item.Item.Municipio.S }}</p>
           <h2>Paraje</h2>
           <p>{{ item.Item.Paraje.S }}</p>
-          <h2>ACUNID</h2>
+          <h2>Coordenada X</h2>
+          <p>{{ item.Item.X.S }}</p>
+          <h2>Coordenada Y</h2>
+          <p>{{ item.Item.Y.S }}</p>
           <!-- <p>{{item.Item.ACUNID_antiguo.S}}</p> -->
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary">Add to cart</button>
+          <a mat-raised-button color="primary" [routerLink]="['/edititem', item.Item.Serie.S]" >Editar</a>
         </mat-card-actions>
       </mat-card>
     </div>

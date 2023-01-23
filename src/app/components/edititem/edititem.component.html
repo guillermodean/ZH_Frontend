@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <!-- form to edit the item -->
+    <form (submit)='edititem()'>
+        <mat-form-field >
+            <h2>Municipio</h2>
+            <input matInput placeholder="{{item.Item.Municipio.S}}" [(ngModel)]="item.Item.Municipio.S">
+            <h2>Paraje</h2>
+            <input matInput placeholder="{{item.Item.Paraje.S}}" [(ngModel)]="item.Item.Paraje.S">
+            <h2>Coordenada X</h2>
+            <input matInput placeholder="{{item.Item.X.S}}" [(ngModel)]="item.Item.X.S">
+            <h2>Coordenada Y</h2>
+            <input matInput placeholder="{{item.Item.Y.S}}" [(ngModel)]="item.Item.Y.S">
+            <h2>ACUNID_antiguo</h2>
+            <input matInput placeholder="{{item.Item.ACUNID_antiguo.S}}" [(ngModel)]="item.Item.ACUNID_antiguo.S">
+            <h2>Rio</h2>
+            <input matInput placeholder="{{item.Item.Rio.S}}" [(ngModel)]="item.Item.Rio.S">
+            <h2>Concatenación_2</h2>
+            <input matInput placeholder="{{item.Item.Concatenacion_2.S}}" [(ngModel)]="item.Item.Concatenacion_2.S">
+        </mat-form-field>
+    </form>
+
+  </div>
+</div>

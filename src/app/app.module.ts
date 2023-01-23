@@ -33,6 +33,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './components/encabezado/login/login.component';
 import { ItemComponent } from './components/item/item.component';
+import { EdititemComponent } from './components/edititem/edititem.component';
 // import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ItemComponent } from './components/item/item.component';
     AdduserComponent,
     LoginComponent,
     ItemComponent,
+    EdititemComponent,
   ],
   imports: [
     BrowserModule,
