@@ -1,24 +1,68 @@
-<div class="container">
-  <div class="row">
-    <!-- form to edit the item -->
-    <form (submit)='edititem()'>
-        <mat-form-field >
-            <h2>Municipio</h2>
-            <input matInput placeholder="{{item.Item.Municipio.S}}" [(ngModel)]="item.Item.Municipio.S">
-            <h2>Paraje</h2>
-            <input matInput placeholder="{{item.Item.Paraje.S}}" [(ngModel)]="item.Item.Paraje.S">
-            <h2>Coordenada X</h2>
-            <input matInput placeholder="{{item.Item.X.S}}" [(ngModel)]="item.Item.X.S">
-            <h2>Coordenada Y</h2>
-            <input matInput placeholder="{{item.Item.Y.S}}" [(ngModel)]="item.Item.Y.S">
-            <h2>ACUNID_antiguo</h2>
-            <input matInput placeholder="{{item.Item.ACUNID_antiguo.S}}" [(ngModel)]="item.Item.ACUNID_antiguo.S">
-            <h2>Rio</h2>
-            <input matInput placeholder="{{item.Item.Rio.S}}" [(ngModel)]="item.Item.Rio.S">
-            <h2>Concatenación_2</h2>
-            <input matInput placeholder="{{item.Item.Concatenacion_2.S}}" [(ngModel)]="item.Item.Concatenacion_2.S">
-        </mat-form-field>
+<!-- form to edit the item -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>{{ item.Item.Municipio.S }}</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (submit)="edititem()">
+      <mat-form-field>
+        <h2>Municipio</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.Municipio.S }}"
+          [(ngModel)]="item.Item.Municipio.S" name="Municipio"
+        />
+        <h2>Paraje</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.Paraje.S }}"
+          [(ngModel)]="item.Item.Paraje.S" name="Paraje"
+        />
+        <h2>Coordenada X</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.X.S }}"
+          [(ngModel)]="item.Item.X.S" name="X"
+        />
+        <h2>Coordenada Y</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.Y.S }}"
+          [(ngModel)]="item.Item.Y.S" name="Y"
+        />
+        <h2>ACUNID_antiguo</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.ACUNID_antiguo.S }}"
+          [(ngModel)]="item.Item.ACUNID_antiguo.S" name="ACUNID_antiguo"
+        />
+        <h2>Rio</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.Rio.S }}"
+          [(ngModel)]="item.Item.Rio.S" name="Rio"
+        />
+        <h2>Concatenación_2</h2>
+        <input
+          matInput
+          placeholder="{{ item.Item.Concatenacion_2.S }}"
+          [(ngModel)]="item.Item.Concatenacion_2.S" name="Concatenacion_2"
+        />
+      </mat-form-field>
+      <div class="row">
+        <div class="col-md-6">
+          <button mat-raised-button color="primary" type="submit">
+            Editar
+          </button>
+        </div>
+        <div class="col-md-6">
+          <button mat-raised-button color="warn" (click)="volver()">
+            Volver
+          </button>
+        </div>
+      </div>
     </form>
-
-  </div>
-</div>
+  </mat-card-content>
+</mat-card>

@@ -28,7 +28,7 @@ export class FichaComponent implements OnInit {
     Serie: '',
     Cod_antiguo: '',
     ACUNID_antiguo: '',
-    Concatenación_2: '',
+    Concatenacion_2: '',
     Paraje: '',
     Municipio: '',
     Rio: '',

@@ -18,7 +18,7 @@ Item:Ficha = {
   Serie: '',
   Cod_antiguo: '',
   ACUNID_antiguo: '',
-  Concatenación_2: '',
+  Concatenacion_2: '',
   Paraje: '',
   Municipio: '',
   Rio: '',
@@ -31,6 +31,7 @@ Item:Ficha = {
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
     this.getficha(param);  
+    
 
   }
 
@@ -45,14 +46,24 @@ Item:Ficha = {
       .openPopup();
   }
 
-  getficha(param:any){
-    this.itemservice.getFichaById(param).subscribe(
+  async getficha (param:any){
+    await this.itemservice.getFichaById(param).subscribe(
       res => {
         this.item = (res);
-        this.getmap(this.item.Item.X.S,this.item.Item.Y.S);
+        
+        const coordenadas = this.convertirCoordenadas(this.item.Item.X.S,this.item.Item.Y.S);
+        const lat=coordenadas[0]
+        const long = coordenadas[1]
+        this.getmap(long,lat);
       },
       err => console.log(err)
     );
+  }
+  convertirCoordenadas(x: number, y: number) {
+    const origen = '+proj=utm +zone=30 +ellps=GRS80 +units=m +no_defs';
+    const destino = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs';
+    const coordenadas = proj4(origen, destino, [Number(x), Number(y)]);
+    return coordenadas;
   }
   ngOnDestroy() {
     this.map.remove();
