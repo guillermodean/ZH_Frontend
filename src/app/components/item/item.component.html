@@ -3,26 +3,35 @@
     <div class="col-12">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>
+          <mat-card-title class="title">
             <h1>{{ item.Item.Municipio.S }}</h1>
           </mat-card-title>
-          <div class="col-md-12">
-            <div id="map" class="map"></div>
-          </div>
         </mat-card-header>
         <mat-card-content>
-          <h2>Municipio</h2>
-          <p>{{ item.Item.Municipio.S }}</p>
-          <h2>Paraje</h2>
-          <p>{{ item.Item.Paraje.S }}</p>
-          <h2>Coordenada X UTM</h2>
-          <p>{{ item.Item.X.S }}</p>
-          <h2>Coordenada Y UTM</h2>
-          <p>{{ item.Item.Y.S }}</p>
+
+          <div id="map" class="map"></div>
+          <div class="row pt-5 flex zero">
+            <div class="col-md-5 uno">
+              <h2>Municipio</h2>
+              <p>{{ item.Item.Municipio.S }}</p>
+              <h2>Paraje</h2>
+              <p>{{ item.Item.Paraje.S }}</p>
+
+            </div>
+            <div class="col-md-5  uno">
+              <h2>Coordenada X UTM</h2>
+              <p>{{ item.Item.X.S }}</p>
+              <h2>Coordenada Y UTM</h2>
+              <p>{{ item.Item.Y.S }}</p>
+            </div>
+          </div>
+
+
           <!-- <p>{{item.Item.ACUNID_antiguo.S}}</p> -->
         </mat-card-content>
-        <mat-card-actions>
-          <a mat-raised-button color="primary" [routerLink]="['/edititem', item.Item.Serie.S]" >Editar</a>
+        <mat-card-actions class="actions">
+            <a mat-raised-button color="white" [routerLink]="['/edititem', item.Item.Serie.S]" >Editar</a>
+            <a mat-raised-button color="white" [routerLink]="['/fichas']">Volver</a>
         </mat-card-actions>
       </mat-card>
     </div>
