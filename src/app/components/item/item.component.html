@@ -8,7 +8,6 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-
           <div id="map" class="map"></div>
           <div class="row pt-5 flex zero">
             <div class="col-md-5 uno">
@@ -16,9 +15,8 @@
               <p>{{ item.Item.Municipio.S }}</p>
               <h2>Paraje</h2>
               <p>{{ item.Item.Paraje.S }}</p>
-
             </div>
-            <div class="col-md-5  uno">
+            <div class="col-md-5 uno">
               <h2>Coordenada X UTM</h2>
               <p>{{ item.Item.X.S }}</p>
               <h2>Coordenada Y UTM</h2>
@@ -26,12 +24,24 @@
             </div>
           </div>
 
-
           <!-- <p>{{item.Item.ACUNID_antiguo.S}}</p> -->
         </mat-card-content>
         <mat-card-actions class="actions">
-            <a mat-raised-button color="white" [routerLink]="['/edititem', item.Item.Serie.S]" >Editar</a>
-            <a mat-raised-button color="white" [routerLink]="['/fichas']">Volver</a>
+          <div class="row">
+            <div class="col-md-5">
+              <a
+                mat-raised-button
+                color="white"
+                [routerLink]="['/edititem', item.Item.Serie.S]"
+                >Editar</a
+              >
+            </div>
+            <div class="col-md-5">
+              <a mat-raised-button color="white" [routerLink]="['/fichas']"
+                >Volver</a
+              >
+            </div>
+          </div>
         </mat-card-actions>
       </mat-card>
     </div>

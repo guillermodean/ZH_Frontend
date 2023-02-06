@@ -79,6 +79,8 @@ mat-card-actions {
     padding: 1px;
     margin-left: 2px;
     margin-right: 2px;
+    display: flex;
+    flex-direction: column;
 
   }
 
