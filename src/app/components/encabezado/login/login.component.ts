@@ -1,59 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/users';
-import { Router } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder,Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
-import {MatDialogModule, MatDialog  } from '@angular/material/dialog';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from 'src/app/services/login.service';
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  showAddUserForm:boolean = false;
-  showEditUserForm:boolean = true;
+  showAddUserForm: boolean = false;
+  showEditUserForm: boolean = true;
   loginForm = this.fb.group({
-    name: ['', Validators.required],
     password: ['', Validators.required],
     email: ['', Validators.required],
-    id: ['']
+    id: [''],
   });
-  user:User = {
+  user: User = {
     email: '',
     password: '',
     name: '',
-    id: ''
+    id: '',
+  };
+  token: any;
+
+  constructor(
+    private login: LoginService,
+    private matsnackbar: MatSnackBar,
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<LoginComponent>
+  ) {}
+
+  ngOnInit(): void {}
+  onSubmit() {
+    this.user = this.loginForm.value;
+    console.log(this.user);
+    this.checkUser(this.user);
   }
 
-  constructor(private login:LoginService , private matsnackbar:MatSnackBar ,private fb:FormBuilder, public dialogRef :  MatDialogRef<LoginComponent>) { }
+  // check if user exists
+  checkUser(user: User) {
+    console.log('usuario que estoy mandando', user);
+    this.login.postuser(user).subscribe(
+      (res) => {
+        console.log(res);
+        console.log(res)
+        this.token = res
+        localStorage.setItem('token',this.token.token);
+        localStorage.setItem('name',this.token.user[0].name.S);
+        this.matsnackbar.open('Bienvenido', 'Cerrar', { duration: 2000 });
+        this.closePopup();
+      },
+      (err) => {
+        console.log(err);
+        this.matsnackbar.open('Usuario o contraseña incorrectos', 'Cerrar', { duration: 2000 });
+      }
+    );
 
-  ngOnInit(): void {
-    
-
+    // 
   }
-  onSubmit(){
-    // this.user = this.loginForm.value
-    // this.(this.user);
+  closePopup() {
+    this.dialogRef.close();
+    location.reload();
   }
-
-//   // check if user exists
-//   checkUser(user:User){
-//     this.login.postuser(user).subscribe(
-//       res => {
-//         console.log(res);
-//         // localStorage.setItem('token',res.token);
-
-//       },
-//       err => console.log(err)
-//     );
-//     // this.closePopup();
-
-//   }
-
 }

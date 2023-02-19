@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { User } from '../../../models/users';
-import { Router } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder,Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
-import {MatDialogModule, MatDialog  } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -45,7 +41,6 @@ export class AdduserComponent implements OnInit {
   addUser(user:User){
     user = this.addUserForm.value
     user.id = this.count+1;
-    console.log("usuario que estoy mandando",user);
     this.usersservice.saveUser(user).subscribe(
       res => {
         console.log(res);

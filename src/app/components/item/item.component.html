@@ -28,7 +28,7 @@
         </mat-card-content>
         <mat-card-actions class="actions">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5" *ngIf="this.islogged == true">
               <a
                 mat-raised-button
                 color="white"
@@ -37,7 +37,7 @@
               >
             </div>
             <div class="col-md-5">
-              <a mat-raised-button color="white" [routerLink]="['/fichas']"
+              <a mat-raised-button color="white" [routerLink]="['/login']"
                 >Volver</a
               >
             </div>

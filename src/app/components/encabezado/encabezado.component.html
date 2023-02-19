@@ -8,30 +8,47 @@
           </div>
         </mat-toolbar-row>
       </div>
-      <div class="col-md-8 col-sm-8">
-        <mat-toolbar-row> </mat-toolbar-row>
+      <div class="col-md-8 col-sm-8" *ngIf="this.isloggedin == true">
+        <mat-toolbar-row>
+          <div class="operario rounded-3">
+            <h1>{{ name }}</h1>
+          </div>
+        </mat-toolbar-row>
       </div>
-      <div class="col-md-2 col-sm-1 logout" *ngIf="this.login == false">
-        <button #isLoggedIn mat-raised-button (click)="logged()">
+      <div class="col-md-2 col-sm-1 logout" *ngIf="this.isloggedin == false">
+        <button mat-raised-button (click)="login()">
           <mat-icon>login</mat-icon
           ><span class="text-break" style="margin-left: 2px">log in</span>
+        </button>
+      </div>
+      <div class="col-md-2 col-sm-1 logout" *ngIf="this.isloggedin == true">
+        <button mat-raised-button (click)="logout()">
+          <mat-icon>logout</mat-icon
+          ><span class="text-break" style="margin-left: 2px">log out</span>
         </button>
       </div>
     </div>
   </mat-toolbar>
 </div>
 
-<div class="row" style="height: 100%">
-  <div class="col-md-3">
-    <app-sidenav></app-sidenav>
+<div class="row flex" style="height: 100%; justify-content: left;">
+  <div class="col-md-2">
+    <mat-drawer-container class="sidenav-container">
+      <app-sidenav></app-sidenav>
+    </mat-drawer-container>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-10">
+    <router-outlet></router-outlet>
+
+    <!-- <div class="col-md-9">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
-          <router-outlet></router-outlet>
-        </div>
+        <div class="col-md-12"> -->
+
+    <!-- </div>
       </div>
     </div>
+  </div> -->
   </div>
 </div>
+

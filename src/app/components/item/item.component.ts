@@ -12,7 +12,7 @@ import proj4 from 'proj4';
 })
 export class ItemComponent implements OnInit {
 item:any = [];
-
+islogged:boolean = false;
 map!: L.Map;
 Item:Ficha = {
   Serie: '',
@@ -29,6 +29,9 @@ Item:Ficha = {
   constructor(public itemservice:ItemService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')){
+      this.islogged = true;
+    }
     const param = this.route.snapshot.paramMap.get('id');
     this.getficha(param);  
     
