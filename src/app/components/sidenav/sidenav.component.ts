@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input} from '@angular/core';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   showFiller = false;
-  isloggedin:boolean = false;
-
+  @Input() isloggedin!:boolean;
   constructor() { }
 
   ngOnInit(): void {

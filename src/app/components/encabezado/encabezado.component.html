@@ -34,11 +34,11 @@
 <div class="row flex" style="height: 100%; justify-content: left;">
   <div class="col-md-2">
     <mat-drawer-container class="sidenav-container">
-      <app-sidenav></app-sidenav>
+      <app-sidenav [isloggedin]="isloggedin"></app-sidenav>
     </mat-drawer-container>
   </div>
   <div class="col-md-10">
-    <router-outlet></router-outlet>
+    <router-outlet ></router-outlet>
 
     <!-- <div class="col-md-9">
     <div class="container-fluid">
