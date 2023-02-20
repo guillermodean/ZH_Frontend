@@ -1,0 +1,35 @@
+/* center all the things */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  background-image: "assets/images/pexels-heiner-205002.jpg"; 
+  filter: blur(5px); /* blur the background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*remove margins from the container */
+.container {
+  margin: 0;
+  padding: 0;
+  margin-left: 0;
+}
+/* overlap the logo and the backgroun image */
+.logo {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  /* add a shadow to the logo */
+    box-shadow: 0 0 40px 30px rgba(95, 133, 100, 0.5);
+    
+    
+}

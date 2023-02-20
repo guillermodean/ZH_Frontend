@@ -5,6 +5,15 @@
   </button>
 
   <button
+
+  mat-raised-button
+  [routerLink]="['home']"
+>
+  <mat-icon class="icon">home</mat-icon>
+  <span>Home</span>
+</button>
+
+  <button
     *ngIf="this.isloggedin == true"
     mat-raised-button
     [routerLink]="['usuarios']"
