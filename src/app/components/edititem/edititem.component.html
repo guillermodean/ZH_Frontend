@@ -5,7 +5,7 @@
       <mat-card>
         <mat-card-header>
           <mat-card-title>
-            <h1>{{ item.Item.Municipio.S }}</h1>
+            <h1>{{ item.Municipio }}</h1>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -16,22 +16,22 @@
                   <h2>Municipio</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.Municipio.S }}"
-                    [(ngModel)]="item.Item.Municipio.S"
+                    placeholder="{{ item.Municipio }}"
+                    [(ngModel)]="item.Municipio"
                     name="Municipio"
                   />
                   <h2>Paraje</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.Paraje.S }}"
-                    [(ngModel)]="item.Item.Paraje.S"
+                    placeholder="{{ item.Paraje }}"
+                    [(ngModel)]="item.Paraje"
                     name="Paraje"
                   />
                   <h2>Coordenada X</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.X.S }}"
-                    [(ngModel)]="item.Item.X.S"
+                    placeholder="{{ item.X }}"
+                    [(ngModel)]="item.X"
                     name="X"
                   />
                 </div>
@@ -39,30 +39,30 @@
                   <h2>Coordenada Y</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.Y.S }}"
-                    [(ngModel)]="item.Item.Y.S"
+                    placeholder="{{ item.Y }}"
+                    [(ngModel)]="item.Y"
                     name="Y"
                   />
                   <h2>ACUNID_antiguo</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.ACUNID_antiguo.S }}"
-                    [(ngModel)]="item.Item.ACUNID_antiguo.S"
+                    placeholder="{{ item.ACUNID_antiguo }}"
+                    [(ngModel)]="item.ACUNID_antiguo"
                     name="ACUNID_antiguo"
                   />
                   <h2>Rio</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.Rio.S }}"
-                    [(ngModel)]="item.Item.Rio.S"
+                    placeholder="{{ item.Rio }}"
+                    [(ngModel)]="item.Rio"
                     name="Rio"
                   />
                   <h2>Concatenación_2</h2>
                   <input
                     matInput
-                    placeholder="{{ item.Item.Concatenacion_2.S }}"
-                    [(ngModel)]="item.Item.Concatenacion_2.S"
-                    name="Concatenacion_2"
+                    placeholder="{{ item.Concatenacion }}"
+                    [(ngModel)]="item.Concatenacion"
+                    name="Concatenacion"
                   />
                 </div>
               </div>

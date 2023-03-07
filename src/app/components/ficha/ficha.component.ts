@@ -28,12 +28,20 @@ export class FichaComponent implements OnInit {
     Serie: '',
     Cod_antiguo: '',
     ACUNID_antiguo: '',
-    Concatenacion_2: '',
+    Concatenacion: '',
     Paraje: '',
     Municipio: '',
     Rio: '',
     X: 0, 
-    Y: 0
+    Y: 0,
+    Enlace: '',
+    Descripcion: '',
+    Geologia: '',
+    Flora: '',
+    Fauna: '',
+    Status_de_conservacion: '',
+    Recomendaciones: ''
+
   }
 
   constructor(private fichaservice:FichaService, private snackbar: MatSnackBarModule) { }

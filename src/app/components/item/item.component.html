@@ -4,7 +4,7 @@
       <mat-card>
         <mat-card-header>
           <mat-card-title class="title">
-            <h1>{{ item.Item.Municipio.S }}</h1>
+            <h1>{{ item.Municipio }}</h1>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -12,15 +12,15 @@
           <div class="row pt-5 flex zero">
             <div class="col-md-5 uno">
               <h2>Municipio</h2>
-              <p>{{ item.Item.Municipio.S }}</p>
+              <p>{{ item.Municipio }}</p>
               <h2>Paraje</h2>
-              <p>{{ item.Item.Paraje.S }}</p>
+              <p>{{ item.Paraje }}</p>
             </div>
             <div class="col-md-5 uno">
               <h2>Coordenada X UTM</h2>
-              <p>{{ item.Item.X.S }}</p>
+              <p>{{ item.X }}</p>
               <h2>Coordenada Y UTM</h2>
-              <p>{{ item.Item.Y.S }}</p>
+              <p>{{ item.Y }}</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@
               <a
                 mat-raised-button
                 color="white"
-                [routerLink]="['/edititem', item.Item.Serie.S]"
+                [routerLink]="['/edititem', item.Serie]"
                 >Editar</a
               >
             </div>

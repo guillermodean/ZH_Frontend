@@ -18,12 +18,20 @@ Item:Ficha = {
   Serie: '',
   Cod_antiguo: '',
   ACUNID_antiguo: '',
-  Concatenacion_2: '',
+  Concatenacion: '',
   Paraje: '',
   Municipio: '',
   Rio: '',
   X: 0, 
-  Y: 0
+  Y: 0,
+  Enlace: '',
+  Descripcion: '',
+  Geologia: '',
+  Flora: '',
+  Fauna: '',
+  Status_de_conservacion: '',
+  Recomendaciones: ''
+
 }
 
   constructor(public itemservice:ItemService, private route: ActivatedRoute) { }
@@ -50,7 +58,7 @@ Item:Ficha = {
         }).addTo(this.map);
     L.marker([x,y],{icon: myIcon})
       .addTo(this.map)
-      .bindPopup(this.item.Municipio.X.S)
+      .bindPopup(this.item.Municipio)
       .openPopup();
   }
 
@@ -59,7 +67,7 @@ Item:Ficha = {
       res => {
         this.item = (res);
         
-        const coordenadas = this.convertirCoordenadas(this.item.Item.X.S,this.item.Item.Y.S);
+        const coordenadas = this.convertirCoordenadas(this.item.X,this.item.Y);
         const lat=coordenadas[0]
         const long = coordenadas[1]
         this.getmap(long,lat);
