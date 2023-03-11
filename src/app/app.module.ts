@@ -31,11 +31,13 @@ import { FormsModule,  } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './components/encabezado/login/login.component';
 import { ItemComponent } from './components/item/item.component';
 import { EdititemComponent } from './components/edititem/edititem.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EdituserComponent } from './components/users/edituser/edituser.component';
 
 // import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
@@ -52,6 +54,7 @@ import { FooterComponent } from './components/footer/footer.component';
     EdititemComponent,
     HomeComponent,
     FooterComponent,
+    EdituserComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     MatDialogModule,
     MatToolbarModule,
+    MatInputModule,
     // MatDialogRef,
 
 

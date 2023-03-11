@@ -8,6 +8,7 @@ import { User } from 'src/app/models/users';
 import { ViewChild } from '@angular/core';
 import { MatDialogModule, MatDialog, MatDialogRef  } from '@angular/material/dialog';
 import { AdduserComponent } from './adduser/adduser.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 
@@ -72,9 +73,21 @@ export class UsersComponent implements OnInit {
 
     });
   }
+  editUser(id:string,name:string,email:string,password:string){
+    const dialog1 = this._dialog.open(EdituserComponent, {
+      width: '500px',
+      height: '500px',
+      data: {id:id,name: name, email: email, password:password},
+    });
+    // log the data from the popup window
+    console.log(dialog1.componentInstance.name)
 
-  
+    this._dialog.afterAllClosed.subscribe(res => {
+      this.snackbar.open("Usuario editado correctamente","",{duration: 2000});
+      this.getUsers();
 
+    });
+  }
 
   deleteUser(id:string){
     this.usersservice.deleteUser(id).subscribe(
@@ -85,14 +98,6 @@ export class UsersComponent implements OnInit {
       err => console.log(err)
     );
   }
-  editUser(id:string){
-    this.usersservice.updateUser(id,this.user).subscribe(
-      res => {
-        console.log(res);
-        this.getUsers();
-      },
-      err => console.log(err)
-    );
-  }
+
 
 }

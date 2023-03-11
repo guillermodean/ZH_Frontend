@@ -1,0 +1,58 @@
+<!-- form edit user -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>{{ user.name }}</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form (submit)="edituser()">
+            <mat-form-field>
+              <div class="row pt-5 flex zero">
+                <div class="col-md-5 uno">
+                  <h2>Id</h2>
+
+                  <input
+                    matInput
+                    placeholder="{{ user.id }}"
+                    [(ngModel)]="user.id"
+                    name="id"
+                  />
+                  <h2>Name</h2>
+                  <input
+                    matInput
+                    placeholder="{{ user.name }}"
+                    [(ngModel)]="user.name"
+                    name="name"
+                  />
+                  <h2>Email</h2>
+                  <input
+                    matInput
+                    placeholder="{{ user.email }}"
+                    [(ngModel)]="user.email"
+                    name="email"
+                  />
+                  <h2>Password</h2>
+                  <input
+                    matInput
+                    placeholder="{{ user.password }}"
+                    [(ngModel)]="user.password"
+                    name="password"
+                  />
+                </div>
+              </div>
+            </mat-form-field>
+            <div class="row">
+              <button class="btn btn-success" mat-raised-button type="submit">
+                Edit User
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -42,7 +42,9 @@ export class AdduserComponent implements OnInit {
     user = this.addUserForm.value
     user.id = this.count+1;
     this.usersservice.saveUser(user).subscribe(
+      
       res => {
+        console.log(user)
         console.log(res);
       },
       err => console.log(err)

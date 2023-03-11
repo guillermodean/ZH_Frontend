@@ -8,11 +8,13 @@ import { UsersComponent } from './components/users/users.component';
 import { EdititemComponent } from './components/edititem/edititem.component';
 import { LoginComponent } from './components/encabezado/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { EdituserComponent } from './components/users/edituser/edituser.component';
 
 
 const routes: Routes = [
   { path: 'fichas', component: FichaComponent },
   { path: 'usuarios', component: UsersComponent },
+  {path: 'edituser/:id', component: EdituserComponent},
   { path: 'ubicacion', component: UbicacionComponent },
   { path: 'adduser', component: AdduserComponent },
   { path: 'item/:id', component: ItemComponent },

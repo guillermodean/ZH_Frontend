@@ -13,7 +13,7 @@ export class UsersService {
   }
 
   getUserById(id:string){
-    return this.http.get(`${this.API_URI}/users/${id}`)
+    return this.http.get(`${this.API_URI}/users/user/${id}`)
   }
 
   deleteUser(id:string){
@@ -30,6 +30,10 @@ export class UsersService {
 
   getcount(){
     return this.http.get(`${this.API_URI}/users/count`)
+  }
+
+  getSeries(){
+    return this.http.get(`${this.API_URI}/users/series`)
   }
 
 
