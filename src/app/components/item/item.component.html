@@ -15,6 +15,7 @@
               <p>{{ item.Municipio }}</p>
               <h2>Paraje</h2>
               <p>{{ item.Paraje }}</p>
+              
             </div>
             <div class="col-md-5 uno">
               <h2>Coordenada X UTM</h2>
@@ -23,8 +24,64 @@
               <p>{{ item.Y }}</p>
             </div>
           </div>
+          <div >
+            <h2>Descripción</h2>
+            <p>{{ item.Descripcion }}</p>
+            <h2>Flora</h2>
+            <p>{{ item.Flora }}</p>
+            <h2>Fauna</h2>
+            <p>{{ item.Fauna }}</p>
+            <h2>Geologia</h2>
+            <p>{{ item.Geologia }}</p>
+            <h2>Recomendacion</h2>
+            <p>{{ item.Recomendacion }}</p>
+            <h2>Status de conservacion</h2>
+            <p>{{ item.Status_de_conservacion }}</p>
+          </div>
 
-          <!-- <p>{{item.Item.ACUNID_antiguo.S}}</p> -->
+        <!--show a grid with buttons and icons-->
+        <div class="row buttons-grid">
+          <div class="col-md-4 ">
+            <button mat-button color="white">
+              <!--local svg feather-->
+              <img src="/assets/icons/feather.svg" alt="feather SVG">
+              <a href="{{item.Enlace_ebird}}/observations/?species=&species_group=1">Aves</a>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-button color="primary">
+              <img src="/assets/icons/deer.svg" alt="deer SVG">
+              <a href="{{item.Enlace_ebird}}/observations/?species=&species_group=2">Mamiferos</a>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-button color="primary" >
+              <img src="/assets/icons/python.svg" alt="python SVG">
+              <a href="{{item.Enlace_ebird}}/observations/?species=&species_group=3">Anfibios y reptiles</a>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-button color="primary" >
+              <img src="/assets/icons/butterfly.svg" alt="butterfly SVG">
+              <a href="{{item.Enlace_ebird}}/observations/?species=&species_group=4">Mariposas</a>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-button color="primary" >
+              <img src="/assets/icons/spider.svg" alt="spider SVG">
+              <a href="{{item.Enlace_ebird}}/observations/?species=&species_group=5">Odonatos</a>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-button color="primary" >
+              <img src="/assets/icons/plant.svg" alt="bee SVG">
+              <a href="{{item.Enlace_ebird}}/observations/?species=&species_group=6">Plantas</a>
+            </button>
+          </div>
+
+        </div>
+
+
         </mat-card-content>
         <mat-card-actions class="actions">
           <div class="row">

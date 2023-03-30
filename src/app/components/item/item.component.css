@@ -91,3 +91,106 @@ mat-card-actions {
     margin-left: 2px;
     margin-right: 2px;
   }
+
+
+.buttons-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #94c551;
+    border-radius: 50px;
+    margin: 10px;
+    padding: auto;
+    height: max-content;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #94c551;
+    border-radius: 50px;
+    margin: 10px;
+    padding: auto;
+    height: max-content;
+  }
+
+  .button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:  white;
+    border-radius: 50px;
+    margin: 10px;
+    padding: auto;
+    height: max-content;
+  }
+
+  .button a{
+    color: #94c551;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: large;
+  }
+
+  .button a:hover{
+    color: #94c551;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:active{
+    color: #94c551;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:visited{
+    color: #94c551;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:focus{
+    color: #b2eb62;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:link{
+    color: #94c551;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:visited{
+    color: #688a39;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:active{
+    color: #94c551;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button a:hover{
+    color: #94c551;
+}

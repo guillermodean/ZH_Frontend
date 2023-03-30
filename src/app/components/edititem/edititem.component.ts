@@ -3,6 +3,7 @@ import { ItemService } from '../../services/item.service';
 import { ActivatedRoute } from '@angular/router';
 import { Ficha } from 'src/app/models/fichas';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edititem',
@@ -10,6 +11,24 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./edititem.component.css'],
 })
 export class EdititemComponent implements OnInit {
+  editForm: FormGroup= new FormGroup({
+    Serie: new FormControl(''),
+    Cod_antiguo: new FormControl(''),
+    ACUNID_antiguo: new FormControl(''),
+    Concatenacion: new FormControl(''),
+    Paraje: new FormControl(''),
+    Municipio: new FormControl(''),
+    Rio: new FormControl(''),
+    X: new FormControl(''),
+    Y: new FormControl(''),
+    Enlace: new FormControl(''),
+    Descripcion: new FormControl(''),
+    Geologia: new FormControl(''),
+    Flora: new FormControl(''),
+    Fauna: new FormControl(''),
+    Status_de_conservacion: new FormControl(''),
+    Recomendaciones: new FormControl(''),
+  });
   item: any = [];
   Item: Ficha = {
     Serie: '',
@@ -30,6 +49,9 @@ export class EdititemComponent implements OnInit {
     Recomendaciones: '',
     
   };
+
+
+
   param: any;
   constructor(
     private route: ActivatedRoute,
@@ -54,6 +76,14 @@ export class EdititemComponent implements OnInit {
       console.log(res);
     });
   }
+  onSubmit() {
+    console.log(this.Item)
+    this.edititem();
+    this.snackBar.open('Ficha editada', 'Cerrar', {
+      duration: 2000,
+    });
+  }
+
   volver() {
     //estas seguro que quieres volver?
     this.snackBar.open('Volver', 'Cerrar', {

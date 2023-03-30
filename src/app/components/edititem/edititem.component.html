@@ -1,89 +1,57 @@
-<!-- form to edit the item -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <h1>{{ item.Municipio }}</h1>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form (submit)="edititem()">
-            <mat-form-field>
-              <div class="row pt-5 flex zero">
-                <div class="col-md-5 uno">
-                  <h2>Municipio</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.Municipio }}"
-                    [(ngModel)]="item.Municipio"
-                    name="Municipio"
-                  />
-                  <h2>Paraje</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.Paraje }}"
-                    [(ngModel)]="item.Paraje"
-                    name="Paraje"
-                  />
-                  <h2>Coordenada X</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.X }}"
-                    [(ngModel)]="item.X"
-                    name="X"
-                  />
-                </div>
-                <div class="col-md-5 uno">
-                  <h2>Coordenada Y</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.Y }}"
-                    [(ngModel)]="item.Y"
-                    name="Y"
-                  />
-                  <h2>ACUNID_antiguo</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.ACUNID_antiguo }}"
-                    [(ngModel)]="item.ACUNID_antiguo"
-                    name="ACUNID_antiguo"
-                  />
-                  <h2>Rio</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.Rio }}"
-                    [(ngModel)]="item.Rio"
-                    name="Rio"
-                  />
-                  <h2>Concatenación_2</h2>
-                  <input
-                    matInput
-                    placeholder="{{ item.Concatenacion }}"
-                    [(ngModel)]="item.Concatenacion"
-                    name="Concatenacion"
-                  />
-                </div>
-              </div>
-            </mat-form-field>
-            <mat-card-actions class="actions">
-              <div class="row">
-                <div class="col-md-5">
-                  <button mat-raised-button color="white" type="submit">
-                    Editar
-                  </button>
-                </div>
-                <div class="col-md-5">
-                  <button mat-raised-button color="white" (click)="volver()">
-                    Volver
-                  </button>
-                </div>
-              </div>
-            </mat-card-actions>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-</div>
+<!-- mat card with mat form field inside to edit all the field of the item -->
+
+<mat-card class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Editar</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Municipio</mat-label>
+        <input matInput value="{{item.Municipio}}" formControlName="Municipio">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Paraje</mat-label>
+        <input matInput value="{{item.Paraje}}" formControlName="Paraje">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Coordenada X Utm</mat-label>
+        <input matInput value="{{item.X}}" formControlName="X">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Coordenada Y Utm</mat-label>
+        <input matInput value="{{item.Y}}" formControlName="Y">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <input matInput value="{{item.Descripcion}}" formControlName="Descripcion">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Flora</mat-label>
+        <input matInput value="{{item.Flora}}" formControlName="Flora">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Fauna</mat-label>
+        <input matInput value="{{item.Fauna}}" formControlName="Fauna">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Geologia</mat-label>
+        <input matInput value="{{item.Geologia}}" formControlName="Geologia">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Recomendacion</mat-label>
+        <input matInput value="{{item.Recomendacion}}" formControlName="Recomendacion">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado de conservacion</mat-label>
+        <input matInput value="{{item.Status_de_conservacion}}" formControlName="Status_de_conservacion">
+      </mat-form-field>
+      </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="onSubmit()">Editar</button>
+    <button mat-button color="danger" (click)="volver()">Volver</button>
+  </mat-card-actions>
+</mat-card>
