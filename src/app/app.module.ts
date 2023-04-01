@@ -39,6 +39,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EdituserComponent } from './components/users/edituser/edituser.component';
 
+
 // import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { EdituserComponent } from './components/users/edituser/edituser.componen
     MatDialogModule,
     MatSnackBarModule,
     MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

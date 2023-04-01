@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Ficha } from '../models/fichas';
 import { Observable } from 'rxjs';
 
@@ -22,7 +22,14 @@ export class ItemService {
     return this.http.delete(`${this.API_URI}/ficha/${id}`);
   }
   updateFicha(id:string|number, updatedFicha:any){
-    return this.http.put(`${this.API_URI}/ficha/${id}`,updatedFicha);
+    const headers = new HttpHeaders({
+
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+
+    });
+    return this.http.put(`${this.API_URI}/ficha/${id}`,updatedFicha,{headers});
+    
   }
   saveFicha(ficha:any){
     return this.http.post(`${this.API_URI}/ficha`,ficha);

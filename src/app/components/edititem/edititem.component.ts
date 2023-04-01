@@ -72,16 +72,25 @@ export class EdititemComponent implements OnInit {
     });
   }
   async edititem() {
+
     await this.itemservice.updateFicha(this.param, this.item).subscribe((res) => {
-      console.log(res);
+      console.log(res)
+      this.snackBar.open('Ficha actualizada', 'Cerrar', {
+        duration: 2000,
+      });
+      window.history.back();
     });
+
   }
   onSubmit() {
-    console.log(this.Item)
+ //iterate editform and assign not empty values to item
+    for (const key in this.editForm.value) {
+      if (this.editForm.value[key] != '') {
+        this.item[key] = this.editForm.value[key];
+      }
+    }
     this.edititem();
-    this.snackBar.open('Ficha editada', 'Cerrar', {
-      duration: 2000,
-    });
+
   }
 
   volver() {

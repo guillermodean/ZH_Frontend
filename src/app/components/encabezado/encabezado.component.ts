@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
@@ -44,4 +44,5 @@ export class EncabezadoComponent implements OnInit {
     localStorage.removeItem('token');
   };
   
+
 }

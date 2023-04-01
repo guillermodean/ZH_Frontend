@@ -8,22 +8,36 @@
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Municipio</mat-label>
-        <input matInput value="{{item.Municipio}}" formControlName="Municipio">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Paraje</mat-label>
-        <input matInput value="{{item.Paraje}}" formControlName="Paraje">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Coordenada X Utm</mat-label>
-        <input matInput value="{{item.X}}" formControlName="X">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Coordenada Y Utm</mat-label>
-        <input matInput value="{{item.Y}}" formControlName="Y">
-      </mat-form-field>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Municipio</mat-label>
+            <input matInput value="{{item.Municipio}}" formControlName="Municipio">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label>Paraje</mat-label>
+            <input matInput value="{{item.Paraje}}" formControlName="Paraje">
+          </mat-form-field>
+        </td>
+        </tr>
+      </table>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Coordenada X Utm</mat-label>
+            <input matInput value="{{item.X}}" formControlName="X">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label>Coordenada Y Utm</mat-label>
+            <input matInput value="{{item.Y}}" formControlName="Y">
+          </mat-form-field>
+        </td>
+        </tr>
+      </table>
       <mat-form-field>
         <mat-label>Descripcion</mat-label>
         <input matInput value="{{item.Descripcion}}" formControlName="Descripcion">
@@ -40,14 +54,23 @@
         <mat-label>Geologia</mat-label>
         <input matInput value="{{item.Geologia}}" formControlName="Geologia">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Recomendacion</mat-label>
-        <input matInput value="{{item.Recomendacion}}" formControlName="Recomendacion">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Estado de conservacion</mat-label>
-        <input matInput value="{{item.Status_de_conservacion}}" formControlName="Status_de_conservacion">
-      </mat-form-field>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Recomendacion</mat-label>
+            <input matInput value="{{item.Recomendacion}}" formControlName="Recomendacion">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <mat-label>Estado de conservacion</mat-label>
+            <input matInput value="{{item.Status_de_conservacion}}" formControlName="Status_de_conservacion">
+          </mat-form-field>
+        </td>
+        </tr>
+      </table>
+
+
       </form>
   </mat-card-content>
   <mat-card-actions>

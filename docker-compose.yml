@@ -1,0 +1,43 @@
+# Docker compose file for the project Humedales incluiding the following services:
+# - humedales: the web application
+# - humedales-api: the API
+
+version: '3.7'
+
+services:
+  humedales:
+    build: .
+    container_name: humedales-frontend
+    restart: always
+    ports:
+      - 80:4200
+    volumes:
+      - ./humedales:/var/www/html
+    depends_on:
+      - humedales-api
+    networks:
+      - humedales-network
+    ipv4_address:
+      - 192.168.1.22
+
+
+  humedales-api:
+    build: ./api
+    container_name: humedales-api
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api:/var/www/html
+    networks:
+      - humedales-network
+    ipv4_address:
+      - 192.168.1.23
+networks:
+  humedales-network:
+    driver: macvlan
+    name: humedales-network
+
+
+
+

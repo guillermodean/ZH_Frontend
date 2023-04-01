@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Ficha } from '../models/fichas';
 import { Observable } from 'rxjs';
 
@@ -9,12 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class FichaService {
   API_URI:string = 'http://localhost:3000/api';
-  headers = {
-    headers: {
-      'Content-Type': 'application/json',
-      'authorization': 'Bearer ' + localStorage.getItem('token')
-    }
-  }
 
   constructor(private http:HttpClient) {  }
   getFichas(){
@@ -24,13 +19,32 @@ export class FichaService {
     return this.http.get(`${this.API_URI}/ficha/${id}`);
   }
   deleteFicha(id:string){
-    return this.http.delete(`${this.API_URI}/ficha/${id}`,this.headers);
+    const headers = new HttpHeaders({
+
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+
+  });
+    return this.http.delete(`${this.API_URI}/ficha/${id}`,{headers});
   }
   updateFicha(id:string|number, updatedFicha:any){
-    return this.http.put(`${this.API_URI}/ficha/${id}`,this.headers,updatedFicha);
+    const headers = new HttpHeaders({
+
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+
+    });
+    return this.http.put(`${this.API_URI}/ficha/${id}`,updatedFicha,{headers});
+    
   }
   saveFicha(ficha:any){
-    return this.http.post(`${this.API_URI}/ficha`,this.headers,ficha);
+    const headers = new HttpHeaders({
+
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+
+  });
+    return this.http.post(`${this.API_URI}/ficha`,{headers},ficha);
   }
   
 }

@@ -1,0 +1,19 @@
+.sort-full-width {
+    width: 90%;
+}
+
+mat-paginator {
+    width: 90%;
+}
+
+.map {
+    margin-top: 1em;
+    height: 300px;
+    width: 90%;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    box-shadow: 0 0 10px 0 #94c551;
+    background-color: #94c551;
+  }
