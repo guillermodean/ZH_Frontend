@@ -6,23 +6,21 @@ version: '3.7'
 
 services:
   humedales:
-    build: .
-    container_name: humedales-frontend
+    image: 192.168.1.181:5000/humedales-web:latest
+    container_name: humedales-web
     restart: always
     ports:
-      - 80:4200
+      - 80:80
     volumes:
       - ./humedales:/var/www/html
     depends_on:
       - humedales-api
     networks:
       - humedales-network
-    ipv4_address:
-      - 192.168.1.22
 
 
   humedales-api:
-    build: ./api
+    image: 192.168.1.181:5000/humedales-api:latest
     container_name: humedales-api
     restart: always
     ports:
@@ -31,12 +29,12 @@ services:
       - ./api:/var/www/html
     networks:
       - humedales-network
-    ipv4_address:
-      - 192.168.1.23
+
 networks:
   humedales-network:
-    driver: macvlan
-    name: humedales-network
+    driver: bridge
+
+
 
 
 

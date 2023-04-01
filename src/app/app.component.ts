@@ -7,10 +7,5 @@ import { Component,HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'Humedales';
-  //remove token when closing app tab
-  // @HostListener('window:beforeunload', ['$event'])
-  // beforeunloadHandler(event: Event) {
-  //   localStorage.removeItem('token');
-  // }
 
 }

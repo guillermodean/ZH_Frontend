@@ -1,0 +1,11 @@
+
+# ingnore node_modules
+# ignore .git
+# ignore .gitignore
+# ignore .gitmodules
+
+node_modules
+dist
+tmp
+e2e
+.github

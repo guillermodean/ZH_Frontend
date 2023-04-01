@@ -1,31 +1,27 @@
-# Dockerfile to for angular app
+# Use the official Node.js image as the base image
+FROM node:14-alpine AS build
 
-# Base image    
-FROM node:14.15.4-alpine3.12
+# Set the working directory inside the container to /app
+RUN mkdir -p /app
 
-# Set working directory
-
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json
+WORKDIR /app
 
 COPY package*.json ./
 
-# Install dependencies
-
 RUN npm install
 
-# Copy app source
+COPY . /app
 
-COPY . .
 
-# Expose port 4200
+# Build the app for production
+RUN npm run build
 
-EXPOSE 4200
+# Use a lightweight production image as the final image
+FROM nginx:1.21.0-alpine
 
-# Start app
+COPY nginx.conf /etc/nginx/nginx.conf
 
-CMD ["npm", "start"]
+COPY --from=build /app/dist/Humedales /usr/share/nginx/html
 
 # Build image
 
