@@ -10,7 +10,7 @@ services:
     container_name: humedales-web
     restart: always
     ports:
-      - 80:80
+      - 80:8080
     volumes:
       - ./humedales:/var/www/html
     depends_on:
