@@ -8,7 +8,6 @@
 export const environment = {
   production: false,
   apiUrl: process.env.NG_APP_URI 
-  // || 'http://localhost:3000/api'
 
 };
 
