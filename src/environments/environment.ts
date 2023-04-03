@@ -3,8 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: isDocker() ? 'http://humedales-api:3000/api' : 'http://localhost:3000/api'
 };
+
+function isDocker() {
+  return process.env.DOCKER === 'true';
+}
+
 
 /*
  * For easier debugging in development mode, you can import the following file

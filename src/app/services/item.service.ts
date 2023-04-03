@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Ficha } from '../models/fichas';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
-  API_URI:string = 'http://localhost:3000/api';
+  API_URI:string = environment.apiUrl;
 
 
   constructor(private http:HttpClient) {  }

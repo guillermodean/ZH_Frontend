@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { Ficha } from '../models/fichas';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FichaService {
-  API_URI:string = 'http://localhost:3000/api';
+  API_URI:string = environment.apiUrl;
 
   constructor(private http:HttpClient) {  }
   getFichas(){

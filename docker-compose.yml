@@ -7,6 +7,8 @@ version: '3.7'
 services:
   humedales:
     image: 192.168.1.181:5000/humedales-web:latest
+    environment:
+      - DOCKER=true
     container_name: humedales-web
     restart: always
     ports:
@@ -21,6 +23,8 @@ services:
 
   humedales-api:
     image: 192.168.1.181:5000/humedales-api:latest
+    env_file:
+      - config.env
     container_name: humedales-api
     restart: always
     ports:
