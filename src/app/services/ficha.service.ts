@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FichaService {
-  API_URI:string = environment.apiUrl;
+  API_URI:string | undefined = environment.apiUrl;
 
   constructor(private http:HttpClient) {  }
   getFichas(){

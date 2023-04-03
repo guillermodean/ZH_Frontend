@@ -1,15 +1,18 @@
+// import {EnvironementService} from 'ngx-env';
+
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
-  apiUrl: isDocker() ? 'http://humedales-api:3000/api' : 'http://localhost:3000/api'
+  apiUrl: process.env.NG_APP_URI 
+  // || 'http://localhost:3000/api'
+
 };
 
-function isDocker() {
-  return process.env.DOCKER === 'true';
-}
+console.log('environment.ts', environment.apiUrl);
 
 
 /*

@@ -9,3 +9,4 @@ dist
 tmp
 e2e
 .github
+.env

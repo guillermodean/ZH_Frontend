@@ -8,7 +8,7 @@ services:
   humedales:
     image: 192.168.1.181:5000/humedales-web:latest
     environment:
-      - DOCKER=true
+      - NG_APP_URI="http://humedales-api:3000/api"
     container_name: humedales-web
     restart: always
     ports:
