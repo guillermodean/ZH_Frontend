@@ -14,7 +14,7 @@ COPY . /app
 
 
 # Build the app for production
-RUN npm run build
+RUN npm run docker
 
 # Use a lightweight production image as the final image
 FROM nginx:1.21.0-alpine
@@ -22,6 +22,8 @@ FROM nginx:1.21.0-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /app/dist/Humedales /usr/share/nginx/html
+
+CMD [ "nginx", "-g", "daemon off;" ]
 
 # Build image
 

@@ -7,11 +7,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: process.env.NG_APP_URI 
+  apiUrl: 'http://humedales-api:3000/api'
 
 };
 
-console.log('environment.ts', environment.apiUrl);
+console.log('test');
 
 
 /*
