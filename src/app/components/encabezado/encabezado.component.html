@@ -1,44 +1,38 @@
 <div id="main" class="container-fluid p-0 m-0">
-  <mat-toolbar style="background-color: lightgray">
-    <div class="row">
-      <div class="col-md-2 col-sm-4">
-        <mat-toolbar-row style="background-color: lightgray">
-          <div class="logo">
-            <img class="logo" src="assets\images\logo1.png" />
-          </div>
-        </mat-toolbar-row>
-      </div>
-      <div class="col-md-8 col-sm-8" *ngIf="this.isloggedin == true">
-        <mat-toolbar-row>
-          <div class="operario rounded-3">
-            <h1>{{ name }}</h1>
-          </div>
-        </mat-toolbar-row>
-      </div>
-      <div class="col-md-2 col-sm-1 logout" *ngIf="this.isloggedin == false">
-        <button mat-raised-button (click)="login()">
-          <mat-icon>login</mat-icon
-          ><span class="text-break" style="margin-left: 2px">log in</span>
-        </button>
-      </div>
-      <div class="col-md-2 col-sm-1 logout" *ngIf="this.isloggedin == true">
-        <button mat-raised-button (click)="logout()">
-          <mat-icon>logout</mat-icon
-          ><span class="text-break" style="margin-left: 2px">log out</span>
-        </button>
-      </div>
+  <mat-toolbar class="toolbar">
+    <div class="logo">
+      <img class="logo" src="assets\images\logo1.png" />
+    </div>
+    <div *ngIf="this.isloggedin == true" class="operario rounded-3">
+      <h1>{{ name }}</h1>
+    </div>
+    <div class="link">
+      <a mat-button [routerLink]="['home']">Home</a>
+      <a mat-button [routerLink]="['fichas']">Fichas</a>
+      <a mat-button  *ngIf="this.isloggedin == true"  [routerLink]="['usuarios']">Usuarios</a>
+    </div>
+    <div class="spacer"></div>
+    <div class="logout" *ngIf="this.isloggedin == false">
+      <button mat-raised-button (click)="login()">
+        <mat-icon>login</mat-icon
+        ><span class="text-break" style="margin-left: 2px">log in</span>
+      </button>
+    </div>
+    <div class="logout" *ngIf="this.isloggedin == true">
+      <button mat-raised-button (click)="logout()">
+        <mat-icon>logout</mat-icon
+        ><span class="text-break" style="margin-left: 2px">log out</span>
+      </button>
     </div>
   </mat-toolbar>
 </div>
 
-<div class="row flex" style="height: 100%; justify-content: left;">
+<!-- <div class="row flex" style="height: 100%; justify-content: left;">
   <div class="col-md-2">
     <mat-drawer-container class="sidenav-container">
       <app-sidenav [isloggedin]="isloggedin"></app-sidenav>
     </mat-drawer-container>
-  </div>
-  <div class="col-md-10">
-    <router-outlet ></router-outlet>
-  </div>
+  </div> -->
+<div>
+  <router-outlet></router-outlet>
 </div>
-
