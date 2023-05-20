@@ -3,9 +3,7 @@
     <div class="logo">
       <img class="logo" src="assets\images\logo1.png" />
     </div>
-    <div *ngIf="this.isloggedin == true" class="operario rounded-3">
-      <h1>{{ name }}</h1>
-    </div>
+    
     <div class="link">
       <a mat-button [routerLink]="['home']">Home</a>
       <a mat-button [routerLink]="['fichas']">Fichas</a>
@@ -17,6 +15,9 @@
         <mat-icon>login</mat-icon
         ><span class="text-break" style="margin-left: 2px">log in</span>
       </button>
+    </div>
+    <div *ngIf="this.isloggedin == true" class="operario rounded-3">
+      <h1>{{ name }}</h1>
     </div>
     <div class="logout" *ngIf="this.isloggedin == true">
       <button mat-raised-button (click)="logout()">

@@ -9,6 +9,7 @@ import { Ficha } from 'src/app/models/fichas';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MatPaginator } from '@angular/material/paginator';
 import * as L from 'leaflet';
+import proj4 from 'proj4';
 @Component({
   selector: 'app-ficha',
   templateUrl: './ficha.component.html',
@@ -47,11 +48,10 @@ export class FichaComponent implements OnInit {
 
   constructor(
     private fichaservice: FichaService,
-    private snackbar: MatSnackBarModule
+    private snackbar: MatSnackBarModule,
   ) {}
 
   ngOnInit(): void {
-    this.getmap();
     this.getfichas();
   }
 
@@ -67,9 +67,16 @@ export class FichaComponent implements OnInit {
         this.dataSource.data = this.fichas;
         this.dataSource.paginator = this.paginator;
         this.paginator.pageSize = 10;
+        this.getmap();
       },
       (err) => console.log(err)
     );
+  }
+  convertirCoordenadas(x: number, y: number) {
+    const origen = '+proj=utm +zone=30 +ellps=GRS80 +units=m +no_defs';
+    const destino = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs';
+    const coordenadas = proj4(origen, destino, [Number(x), Number(y)]);
+    return coordenadas;
   }
   getmap() {
     var myIcon = L.icon({
@@ -79,18 +86,22 @@ export class FichaComponent implements OnInit {
     console.log('getmap');
     this.map = L.map('map').setView(
       [42.650040031011955, -1.790129274580864],
-      13
+      8
     );
     L.tileLayer(
       '//server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
       {
-        // attribution: attributionExpand('Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community')
       }
     ).addTo(this.map);
-    L.marker([42.650040031011955, -1.790129274580864], { icon: myIcon })
-      .addTo(this.map)
-      .bindPopup('Hello, world!')
+    this.fichas.forEach((marker: any) => {
+      // console.log(marker.X, marker.Y)
+      const coordenadas = this.convertirCoordenadas(marker.X, marker.Y);
+      const lat = coordenadas[1];
+      const long = coordenadas[0];
+      L.marker([lat, long],{icon: myIcon }).addTo(this.map).bindPopup('<a href="/item/'+marker.Serie+'">'+marker.Paraje+'</a>')
       .openPopup();
+    });
+    
   }
   ngOnDestroy() {
     this.map.remove();
