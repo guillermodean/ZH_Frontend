@@ -9,6 +9,7 @@ import { ViewChild } from '@angular/core';
 import { MatDialogModule, MatDialog, MatDialogRef  } from '@angular/material/dialog';
 import { AdduserComponent } from './adduser/adduser.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { Router } from '@angular/router';
 
 
 
@@ -38,7 +39,7 @@ export class UsersComponent implements OnInit {
   }
 
 
-  constructor(private usersservice:UsersService, private dialog:MatDialogModule, public snackbar:MatSnackBar, private _dialog:MatDialog) { }
+  constructor(private usersservice:UsersService, private dialog:MatDialogModule, public snackbar:MatSnackBar, private _dialog:MatDialog, private router:Router) { }
   
   ngOnInit(): void {
     console.log("ngOnInit");
@@ -80,10 +81,11 @@ export class UsersComponent implements OnInit {
       data: {id:id,name: name, email: email, password:password},
     });
     // log the data from the popup window
-    console.log(dialog1.componentInstance.name)
+    // console.log(dialog1.componentInstance.name)
 
     this._dialog.afterAllClosed.subscribe(res => {
-      this.snackbar.open("Usuario editado correctamente","",{duration: 2000});
+      // redirect to user page
+      this.router.navigate(['/users']);
       this.getUsers();
 
     });

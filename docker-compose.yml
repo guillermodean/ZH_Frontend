@@ -6,7 +6,7 @@ version: '3.7'
 
 services:
   humedales:
-    image: 192.168.1.181:5000/humedales-front
+    image: guillermojdean/humedales-frontend
     env_file:
       - .env
     container_name: humedales-web
@@ -22,7 +22,7 @@ services:
 
 
   humedales-api:
-    image: 192.168.1.181:5000/humedales-api:latest
+    image: guillermojdean/humedales-backend
     env_file:
       - .env
     container_name: humedales-api

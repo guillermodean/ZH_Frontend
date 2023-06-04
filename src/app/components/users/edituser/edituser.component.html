@@ -1,58 +1,33 @@
-<!-- form edit user -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <h1>{{ user.name }}</h1>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form (submit)="edituser()">
-            <mat-form-field>
-              <div class="row pt-5 flex zero">
-                <div class="col-md-5 uno">
-                  <h2>Id</h2>
+<h2 mat-dialog-title>Update User</h2>
+<div mat-dialog-content>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Last Password" formControlName="password" type="password" required>
+      <mat-error *ngIf="formControls.password.errors?.required">Last Password is required.</mat-error>
+    </mat-form-field>
 
-                  <input
-                    matInput
-                    placeholder="{{ user.id }}"
-                    [(ngModel)]="user.id"
-                    name="id"
-                  />
-                  <h2>Name</h2>
-                  <input
-                    matInput
-                    placeholder="{{ user.name }}"
-                    [(ngModel)]="user.name"
-                    name="name"
-                  />
-                  <h2>Email</h2>
-                  <input
-                    matInput
-                    placeholder="{{ user.email }}"
-                    [(ngModel)]="user.email"
-                    name="email"
-                  />
-                  <h2>Password</h2>
-                  <input
-                    matInput
-                    placeholder="{{ user.password }}"
-                    [(ngModel)]="user.password"
-                    name="password"
-                  />
-                </div>
-              </div>
-            </mat-form-field>
-            <div class="row">
-              <button class="btn btn-success" mat-raised-button type="submit">
-                Edit User
-              </button>
-            </div>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
+    <mat-form-field>
+      <input matInput placeholder="New Password" formControlName="newPassword" type="password" required>
+      <mat-error *ngIf="formControls.newPassword.errors?.required">New Password is required.</mat-error>
+      <mat-error *ngIf="formControls.newPassword.errors?.minlength">New Password must be at least 8 characters long.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="formControls.name.errors?.required">Name is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" type="email" required>
+      <mat-error *ngIf="formControls.email.errors?.required">Email is required.</mat-error>
+      <mat-error *ngIf="formControls.email.errors?.email">Invalid email format.</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [disabled]="updateForm.invalid" (click)="onSubmit()">Update</button>
+  <button mat-button (click)="onResetPassword()">Reset Password</button>
+</div>
+<div *ngIf="resetPasswordClicked" class="reset-password-message">
+  <p>An email with instructions to reset your password has been sent.</p>
 </div>

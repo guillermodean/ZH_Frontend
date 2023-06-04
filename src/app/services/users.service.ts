@@ -37,5 +37,9 @@ export class UsersService {
     return this.http.get(`${this.API_URI}/users/series`)
   }
 
+  resetuserpassword(id:string,updatedUser:any){
+    return this.http.put(`${this.API_URI}/users/reset/${id}`,updatedUser)
+  }
+
 
 }

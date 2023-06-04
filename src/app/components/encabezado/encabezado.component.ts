@@ -3,6 +3,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 
@@ -16,7 +17,7 @@ export class EncabezadoComponent implements OnInit {
   isloggedin:boolean = false;
   name=localStorage.getItem('name');
 
-  constructor(private dialog:MatDialogModule, public snackbar:MatSnackBar, private _dialog:MatDialog) {}
+  constructor(private dialog:MatDialogModule, public snackbar:MatSnackBar, private _dialog:MatDialog, private router:Router) {}
 
   ngOnInit(): void {
     if(localStorage.getItem('token')){
@@ -33,6 +34,8 @@ export class EncabezadoComponent implements OnInit {
       // data: {name: this.user.name, email: this.user.email, password: this.user.password}
     });
     this._dialog.afterAllClosed.subscribe(res => {
+      // this.router.navigate(['/']);
+      window.location.reload();
       this.snackbar.open("Usuario agregado correctamente","",{duration: 2000});
       // this.getUsers();
 

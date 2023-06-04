@@ -1,61 +1,125 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { User } from '../../../models/users';
-import { FormBuilder,Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Inject } from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
-
 
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
-  styleUrls: ['./edituser.component.css']
+  styleUrls: ['./edituser.component.css'],
 })
 export class EdituserComponent implements OnInit {
-param:any;
-id:string;
-name:string;
-password:string;
-email:string;
-user:User = {
+  updateForm: FormGroup;
+  resetPasswordClicked: boolean = false;
+  param: any;
+  // id:string;
+  // name:string;
+  // password:string;
+  // email:string;
+  user: User = {
     email: '',
     password: '',
+    NewPassword: '',
     name: '',
-    id: ''
+    id: '',
+  };
+  constructor(
+    private route: ActivatedRoute,
+    private matsnackbar: MatSnackBar,
+    private formBuilder: FormBuilder,
+    private usersservice: UsersService,
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<EdituserComponent>,
+    @Inject(MAT_DIALOG_DATA) data: any
+  ) {
+    this.updateForm = this.formBuilder.group({
+      password: ['', Validators.required],
+      newPassword: ['', [Validators.required, Validators.minLength(8)]],
+      id: [data.id, Validators.required],
+      name: [data.name, Validators.required],
+      email: [data.email, [Validators.required, Validators.email]],
+    });
   }
-  constructor( private route: ActivatedRoute, private matsnackbar:MatSnackBar ,private usersservice:UsersService,private fb:FormBuilder, public dialogRef :  MatDialogRef<EdituserComponent>, @Inject(MAT_DIALOG_DATA) data:any) {this.name = data.name; this.id = data.id; this.email = data.email; this.password = data.password;}
+  get formControls() {
+    return this.updateForm.controls;
+  }
+  onSubmit() {
+    if (this.updateForm.invalid) {
+      return;
+    }
+    this.user.id = this.updateForm.value.id;
+    this.user.name = this.updateForm.value.name;
+    this.user.email = this.updateForm.value.email;
+    this.user.password = this.updateForm.value.password;
+    this.user.NewPassword = this.updateForm.value.newPassword;
+    this.edituser();
+  }
 
   ngOnInit(): void {
-    this.user.email = this.email;
-    this.user.name = this.name;
-    this.user.password = this.password;
-    this.user.id = this.id;
     this.getuser();
   }
-  getuser(){
+  getuser() {
     this.param = this.route.snapshot.paramMap.get('id');
     this.usersservice.getUserById(this.param).subscribe(
-      res => {
+      (res) => {
         console.log(res);
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  edituser() {
+    console.log(this.user);
+    this.usersservice.updateUser(this.param, this.user).subscribe(
+      (res) => {
+        const data = JSON.parse(JSON.stringify(res));
+        this.matsnackbar.open(data.message, 'Close', {
+          duration: 2000,
+        });
+        //if res status is 200 then close popup
+        setInterval(() => {
+          this.dialogRef.close();
+        }
+          , 2000);
 
       },
-      err => console.log(err)
+      (err) => {
+        console.log(err);
+        //show error message from backend
+        this.matsnackbar.open(err.error, 'Close', {
+          duration: 2000,
+        });
+      }
     );
+    //ir not err then close popup
+
+  
   }
-  edituser(){
-    this.usersservice.updateUser(this.param,this.user).subscribe(
-      res => {
+  closePopup() {
+    // close dialogreff and pass message to parent component
+    this.dialogRef.close('Usuarion actualizado');
+  }
+  onResetPassword() {
+    this.usersservice.resetuserpassword(this.param, this.user).subscribe(
+      (res) => {
         console.log(res);
+        this.matsnackbar.open('Password Reset Successfully', 'Close', {
+          duration: 2000,
+        });
+        setInterval(() => {
+          this.dialogRef.close();
+        }
+          , 2000);
+
+
       },
-      err => console.log(err)
+      (err) => console.log(err)
     );
-    //this.closePopup();
-  }
-  closePopup(){
-    this.dialogRef.close();
-    location.reload();
+
+    this.resetPasswordClicked = true;
   }
 }

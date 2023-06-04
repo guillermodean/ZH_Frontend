@@ -14,10 +14,13 @@ export class LoginComponent implements OnInit {
   showAddUserForm: boolean = false;
   showEditUserForm: boolean = true;
   loginForm = this.fb.group({
-    password: ['', Validators.required],
-    email: ['', Validators.required],
+    password: ['', Validators.required, Validators.minLength(4), ], //Validators.pattern('^[a-zA-Z0-9]+$')
+    email: ['', Validators.required, Validators.email],
     id: [''],
   });
+  get formControls() {
+    return this.loginForm.controls;
+  }
   user: User = {
     email: '',
     password: '',
@@ -33,8 +36,13 @@ export class LoginComponent implements OnInit {
     public dialogRef: MatDialogRef<LoginComponent>
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
   onSubmit() {
+    if (this.loginForm.invalid) {
+      return;
+    }
     this.user = this.loginForm.value;
     console.log(this.user);
     this.checkUser(this.user);
@@ -63,6 +71,9 @@ export class LoginComponent implements OnInit {
   }
   closePopup() {
     this.dialogRef.close();
-    location.reload();
+    // redirect to route 
+
+
+
   }
 }

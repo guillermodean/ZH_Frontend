@@ -14,7 +14,7 @@ COPY . /app
 
 
 # Build the app for production
-RUN npm run docker
+RUN npm run build
 
 # Use a lightweight production image as the final image
 FROM nginx:1.21.0-alpine
