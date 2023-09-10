@@ -9,7 +9,7 @@ import { EdititemComponent } from './components/edititem/edititem.component';
 import { LoginComponent } from './components/encabezado/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { EdituserComponent } from './components/users/edituser/edituser.component';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'fichas', component: FichaComponent },
@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'edititem/:id', component: EdititemComponent },
   {path:'login', component: LoginComponent},
   { path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

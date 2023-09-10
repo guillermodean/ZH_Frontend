@@ -38,6 +38,8 @@ import { EdititemComponent } from './components/edititem/edititem.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EdituserComponent } from './components/users/edituser/edituser.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 
 // import { _MatDialogBase ,MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -56,6 +58,7 @@ import { EdituserComponent } from './components/users/edituser/edituser.componen
     HomeComponent,
     FooterComponent,
     EdituserComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

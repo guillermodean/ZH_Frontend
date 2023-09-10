@@ -1,29 +1,75 @@
-# Humedales
----
-## Description
+# Humedales de Navarra App
 
-Frontend for the [Humedales API](https://github.com/guillermodean/ZonasHumedas.git). Consisting on 
+Frontend for the [Humedales API](https://github.com/guillermodean/ZonasHumedas.git).
 
-Este es un proyecto de Angular y TypeScript que muestra un listado de humedales en Navarra junto con sus descripciones y ubicaciones en el mapa. Además, permite a los usuarios con privilegios de administrador iniciar sesión y editar la información de cada humedal a través de un sistema de autenticación basado en JWT.
-
+Esta es una aplicación web que proporciona un listado de humedales en la región de Navarra, junto con observaciones de animales y plantas en estos humedales. La aplicación está diseñada para ayudar a los entusiastas de la naturaleza y los científicos a explorar y registrar observaciones de la vida silvestre en los humedales de Navarra.
 La información de los humedales está almacenada en una base de datos en DynamoDB, que ya ha sido creada previamente, se gestiona a traves de la API [Humedales API](https://github.com/guillermodean/ZonasHumedas.git).
 
-## Requisitos
-* Node.js
-* Angular CLI
-* AWS CLI
-## Instalación
+## Características
+
+- Lista de humedales con información detallada.
+- Registro y visualización de observaciones de animales y plantas en cada humedal.
+- Búsqueda y filtrado de humedales por ubicación y tipo.
+- Interfaz de usuario intuitiva y fácil de usar.
+
+## Capturas de Pantalla
+
+![Home](/src/assets/images/Captura%20de%20pantalla%202023-09-10%20173435%20-%20home.jpg)
+_Home de la página_
+
+![List](/src/assets/images/Captura%20de%20pantalla%202023-09-10%20173541%20-%20list.jpg)
+_Ejemplo de la tabla y mapa de busqueda de los Humedales._
+
+## Despliegue
+
+La aplicación está desplegada en la siguiente URL: [https://humedales.guillermodean.com](https://humedales.guillermodean.com).
+
+## Instalación Local
+
+Si deseas ejecutar la aplicación en tu entorno local, puedes usar Docker y Docker Compose para simplificar el proceso. Asegúrate de tener Docker instalado.
+
+1. Clona este repositorio o descarga el código fuente.
+
+2. Descarga las imágenes de Docker desde Docker Hub:
+
+   ```bash
+   docker pull guillermojdean/humedales-frontend:latest
+   ```
+3. Utiliza `docker-compose` para iniciar la aplicación junto con el backend:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+4. Abre tu navegador y accede a `http://localhost:3000` para ver la aplicación en funcionamiento en tu entorno local.
+
+## Tecnologías Utilizadas
+
+- Angular (versión 11.2.19)
+- Express.js (versión 4.18.2)
+- AWS DynamoDB
+- Leaflet (versión 1.9.3)
+- Docker
 
 
-Clona el repositorio en tu máquina local.
-En la terminal, navega hasta el directorio del proyecto y ejecuta `npm install` para instalar todas las dependencias.
-Configura las credenciales de AWS en tu máquina usando el comando `aws configure`.
-Ejecuta ng serve para iniciar el servidor local.
+## Contribución
+
+Si deseas contribuir a este proyecto, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+
+2. Crea una rama para tu contribución: "consola" git checkout -b feature/tu-caracteristica "consola"
+
+3. Realiza tus cambios y realiza commits descriptivos.
+
+4. Haz un pull request a la rama principal de este repositorio.
+
+## Autores
+
+- Guillermo Dean - [GitHub](https://github.com/tuusuario)
 
 
-## Uso
-Una vez que hayas iniciado el servidor local, puedes acceder a la aplicación en tu navegador web navegando a http://localhost:4200/.
+## Licencia
 
-Para ver la lista de humedales, simplemente haz clic en la sección correspondiente en la barra de navegación. Cada humedal está representado por un marcador en el mapa, que puedes hacer clic para ver más información.
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](License) para obtener más detalles.
 
-Si tienes privilegios de administrador, puedes iniciar sesión en la aplicación haciendo clic en el botón de "Iniciar sesi
